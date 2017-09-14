@@ -2,3 +2,6 @@
 - name: Setup before gathering facts
   hosts: production
   gather_facts: no
+
+  roles:
+    - setup

@@ -1,0 +1,21 @@
+2017-09-15 00:00:29,633 p=6159 u=tanvirhasan |  PLAY [Setup before gathering facts] ********************************************
+2017-09-15 00:00:29,648 p=6159 u=tanvirhasan |  ERROR! the field 'hosts' is required but was not set
+2017-09-15 00:01:29,992 p=6407 u=tanvirhasan |  PLAY [Setup before gathering facts] ********************************************
+2017-09-15 00:01:30,007 p=6407 u=tanvirhasan |  ERROR! the field 'hosts' is required but was not set
+2017-09-15 00:03:56,187 p=6537 u=tanvirhasan |  PLAY [Setup before gathering facts] ********************************************
+2017-09-15 00:03:56,201 p=6537 u=tanvirhasan |  ERROR! the field 'hosts' is required but was not set
+2017-09-15 00:11:22,899 p=6688 u=tanvirhasan |  PLAY [Setup before gathering facts] ********************************************
+2017-09-15 00:11:22,936 p=6688 u=tanvirhasan |  TASK [setup : Determine release] ***********************************************
+2017-09-15 00:11:26,765 p=6688 u=tanvirhasan |  changed: [192.168.33.10]
+2017-09-15 00:11:26,767 p=6688 u=tanvirhasan |  PLAY RECAP *********************************************************************
+2017-09-15 00:11:26,767 p=6688 u=tanvirhasan |  192.168.33.10              : ok=1    changed=1    unreachable=0    failed=0   
+2017-09-15 00:11:43,684 p=6816 u=tanvirhasan |  PLAY [Setup before gathering facts] ********************************************
+2017-09-15 00:11:43,697 p=6816 u=tanvirhasan |  TASK [setup : Determine release] ***********************************************
+2017-09-15 00:11:43,799 p=6816 u=tanvirhasan |  changed: [192.168.33.10]
+2017-09-15 00:11:43,801 p=6816 u=tanvirhasan |  PLAY RECAP *********************************************************************
+2017-09-15 00:11:43,801 p=6816 u=tanvirhasan |  192.168.33.10              : ok=1    changed=1    unreachable=0    failed=0   
+2017-09-15 00:11:46,532 p=6937 u=tanvirhasan |  PLAY [Setup before gathering facts] ********************************************
+2017-09-15 00:11:46,546 p=6937 u=tanvirhasan |  TASK [setup : Determine release] ***********************************************
+2017-09-15 00:11:46,651 p=6937 u=tanvirhasan |  changed: [192.168.33.10]
+2017-09-15 00:11:46,653 p=6937 u=tanvirhasan |  PLAY RECAP *********************************************************************
+2017-09-15 00:11:46,654 p=6937 u=tanvirhasan |  192.168.33.10              : ok=1    changed=1    unreachable=0    failed=0   
