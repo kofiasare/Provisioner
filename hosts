@@ -1,0 +1,2 @@
+[production]
+213.186.171.162 ansible_ssh_user=ubuntu ansible_ssh_private_key_file=~/.ssh/id_rsa
