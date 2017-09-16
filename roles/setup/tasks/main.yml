@@ -6,10 +6,14 @@
 - debug:
     var: release.stdout
     
-- name: "update apt cache"
+- name: update apt cache
   raw: apt-get -y update
   become: true    
 
-- name: "upgrade packages"
+- name: upgrade packages
   raw: apt-get -y dist-upgrade
-  become: true  
+  become: true
+
+- name: clear up
+  raw: apt-get -y autoremove && apt-get -y clean
+  become: true
