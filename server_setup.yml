@@ -5,3 +5,9 @@
 
   roles:
     - setup
+
+- name: Configure Server for Rails app
+  hosts: server_setup
+
+  roles:
+    - create-deploy-user    
