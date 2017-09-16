@@ -6,3 +6,6 @@
 - debug:
     var: release.stdout
     
+- name: "update apt cache"
+  raw: apt-get -y update
+  become: true    
