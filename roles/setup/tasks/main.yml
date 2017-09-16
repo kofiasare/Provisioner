@@ -19,6 +19,6 @@
   become: true
 
 - name: Install python2 for xenial dist
-  raw: apt-get install -y python2.7
+  raw: apt-get install -y --force-yes python-simplejson
   when: release.stdout == 'xenial'
   become: true  
