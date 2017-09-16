@@ -9,3 +9,7 @@
 - name: "update apt cache"
   raw: apt-get -y update
   become: true    
+
+- name: "upgrade packages"
+  raw: apt-get -y dist-upgrade
+  become: true  
