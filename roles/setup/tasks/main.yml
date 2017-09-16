@@ -17,3 +17,8 @@
 - name: clear up
   raw: apt-get -y autoremove && apt-get -y clean
   become: true
+
+- name: Install python2 for xenial dist
+  raw: apt-get install -y python2.7
+  when: release.stdout == 'xenial'
+  become: true  
