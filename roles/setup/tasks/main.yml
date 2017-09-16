@@ -2,3 +2,7 @@
   raw: lsb_release -a 2>/dev/null | grep Codename | awk '{printf("%s"), $2}'
   register: release
   ignore_errors: yes
+
+- debug:
+    var: release.stdout
+    
