@@ -1,3 +1,12 @@
 - name: Create deployment user
   user: name={{ deploy_user }} comment="Application deployment user"
   become: true
+
+- name: Update user permissions
+  template:
+    src: templates/deployer.j2
+    dest: /etc/sudoers.d/deployer
+    owner: root
+    group: root
+    mode: 0440
+  become: true    
