@@ -10,3 +10,11 @@
     group: root
     mode: 0440
   become: true    
+
+- name: Create .ssh folder
+  file:
+    path: '/home/{{ deploy_user }}/.ssh'  
+    state: directory
+    group: '{{ deploy_user }}'
+    owner: '{{ deploy_user }}'
+  become: true
