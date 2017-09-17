@@ -4,7 +4,7 @@
   ignore_errors: yes
 
 - debug:
-    var: release.stdout
+    var: release.stdout    
     
 - name: update apt cache
   raw: apt-get -y update

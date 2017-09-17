@@ -1,4 +1,5 @@
 remote_user: tanvirhasan
+remote_user_os: MacOs
 
 ruby_version: 2.4.1
 node_version: 7.7.4
