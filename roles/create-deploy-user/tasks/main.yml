@@ -18,3 +18,12 @@
     group: '{{ deploy_user }}'
     owner: '{{ deploy_user }}'
   become: true
+
+- name: "Update {{ deploy_user }}'s allowed keys"
+  copy:
+    remote_src: true
+    src: /home/{{ remote_user }}/.ssh/id_rsa
+    dest: /home/{{ deploy_user }}/.ssh/id_rsa
+    group: '{{ deploy_user }}'
+    owner: '{{ deploy_user }}'
+  become: true

@@ -1,4 +1,4 @@
-remote_user: ubuntu
+remote_user: tanvirhasan
 
 ruby_version: 2.4.1
 node_version: 7.7.4
