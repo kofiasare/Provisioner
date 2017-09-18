@@ -11,4 +11,12 @@
     - imagemagick
   become: true
 
-  
+- name: Install nodejs
+  apt: >
+    package=nodejs 
+    state=installed 
+    force=yes 
+    update_cache=yes
+    cache_valid_time=3600
+  when: ansible_os_family == 'Debian'
+  become: true
