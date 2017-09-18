@@ -1,2 +1,3 @@
 log/*
 server_setup.retry
+/roles/create-deploy-user/templates/authorized_keys.j2

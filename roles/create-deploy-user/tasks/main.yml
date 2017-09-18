@@ -19,16 +19,15 @@
     owner: '{{ deploy_user }}'
   become: true
 
-# - name: "Update {{ deploy_user }}'s allowed keys"
-#   copy:
-#     remote_src: true
-#     src: /Users/tanvirhasan/a
-#     dest: /home/{{ deploy_user }}/.ssh/authorize_keys
-#     group: '{{ deploy_user }}'
-#     owner: '{{ deploy_user }}'
-#   when: remote_user_os == 'MacOs'
-#   become: true
-
+- name: "Update {{ deploy_user }}'s allowed keys"
+  copy:
+    remote_src: true
+    src: /home/{{ remote_user }}/.ssh/authorized_keys
+    dest: /home/{{ deploy_user }}/.ssh/authorized_keys
+    group: '{{ deploy_user }}'
+    owner: '{{ deploy_user }}'
+  become: true
+  
 
 - debug:
     var: ansible_os_family.stdout
