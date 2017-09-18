@@ -11,3 +11,4 @@
 
   roles:
     - create-deploy-user    
+    - rails-config
