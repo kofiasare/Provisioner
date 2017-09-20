@@ -12,3 +12,4 @@
   roles:
     - create-deploy-user    
     - rails-config
+    - nginx

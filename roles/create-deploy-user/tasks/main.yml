@@ -4,7 +4,7 @@
 
 - name: Update user permissions
   template:
-    src: templates/deployer.j2
+    src: deployer.j2
     dest: /etc/sudoers.d/deployer
     owner: root
     group: root
@@ -31,7 +31,7 @@
 
 - name: Install Github access key
   template:
-    src: 'templates/{{ item.name }}.j2'
+    src: '{{ item.name }}.j2'
     dest: '/home/{{ deploy_user }}/.ssh/{{ item.name }}'
     group: '{{ deploy_user }}'
     owner: '{{ deploy_user }}'
@@ -40,7 +40,3 @@
     - { name: id_rsa, mode: 400 }
     - { name: id_rsa.pub, mode: 664 }
   become: true
-
-- debug:
-    var: ansible_os_family.stdout
-  when: ansible_os_family == 'Debian'
