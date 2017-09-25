@@ -1,2 +1,7 @@
-- debug:
-    msg: "{{ mysql_root_password }}"
+- name: Set mysql root password before installing
+  debconf: >
+    name='mysql-server'
+    question='mysql-server/root_password'
+    value={{mysql_root_password | quote}}
+    vtype=password
+  become: true
