@@ -14,3 +14,4 @@
     - rails-config
     - nginx
     - mysql
+    - rbenv
