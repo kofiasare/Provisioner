@@ -39,3 +39,12 @@
     - localhost
     - ::1
     - "{{ ansible_fqdn }}"  
+
+- name: Delete anonymous MySQL server user for localhost
+  mysql_user: >
+    user={{ item }}
+    state=absent
+    login_password={{ mysql_root_password }}
+    login_user=root
+  with_items:
+    - ''    
