@@ -67,4 +67,10 @@
   with_items:
     - "{{ mysql_user }}"
 
-                
+- name: Create Mysql configuration file
+  template:
+    src=my.cnf.j2
+    dest=/etc/my.cnf
+  become: true
+  notify:
+    - restart mysql                  
