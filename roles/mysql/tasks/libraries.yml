@@ -1,0 +1,14 @@
+---
+- name: Install library
+  apt: >
+    package={{ item }}
+    state=installed
+    force=yes
+    update_cache=yes
+    cache_valid_time=3600
+  when: ansible_os_family == 'Debian'
+  with_items:
+    - libmysqlclient-dev
+  become: true
+  notify:
+    - restart mysql    
