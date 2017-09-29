@@ -22,3 +22,16 @@
   raw: apt-get install -y --force-yes python-simplejson
   when: release.stdout == 'xenial'
   become: true  
+
+- name: Install dependencies
+  apt:
+    name: '{{ item }}'
+    state: installed
+    force: yes
+    update_cache: yes
+    cache_valid_time: 3600
+  with_items:
+      - make
+      - git
+      - gcc
+  become: true  
