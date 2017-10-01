@@ -1,0 +1,6 @@
+---
+- name: Check for previous versin rbenv
+  stat:
+    path: '{{ rbenv_path }}/bin/rbenv'
+  ignore_errors: true
+  register: rbenv_bin_dir
