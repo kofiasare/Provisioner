@@ -19,3 +19,12 @@
       repo: '{{ rbenv_url }}'
       dest: '{{ rbenv_path }}'
       accept_hostkey: yes  
+
+  - name: Add rbenv bash config to PATH
+    template:
+      src: rbenv.sh.j2
+      dest: /etc/profile.d/rbenv.sh
+      owner: root
+      group: root
+      mode: 0775
+    become: true    
