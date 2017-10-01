@@ -13,3 +13,9 @@
       group: '{{ remote_user }}'
       owner: '{{ remote_user }}'  
     become: true  
+
+  - name: git clone rbenv
+    git:
+      repo: '{{ rbenv_url }}'
+      dest: '{{ rbenv_path }}'
+      accept_hostkey: yes  
