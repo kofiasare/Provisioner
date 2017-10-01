@@ -4,3 +4,12 @@
     path: '{{ rbenv_path }}/bin/rbenv'
   ignore_errors: true
   register: rbenv_bin_dir
+
+- block:
+  - name: Create rbenv base directory
+    file:
+      path: '{{ rbenv_path }}'
+      state: directory
+      group: '{{ remote_user }}'
+      owner: '{{ remote_user }}'  
+    become: true  
