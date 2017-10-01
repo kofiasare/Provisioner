@@ -2,3 +2,5 @@
 - include: dependencies/debian.yml
 
 - include: install-rbenv.yml
+
+- include: plugins/ruby-build.yml
