@@ -4,3 +4,5 @@
 - include: install-rbenv.yml
 
 - include: plugins/ruby-build.yml
+
+- include: plugins/rbenv-default-gems.yml
