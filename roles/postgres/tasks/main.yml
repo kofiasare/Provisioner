@@ -1,6 +1,9 @@
 ---
 - include: install-postgres.yml
 
+- name: Ensure the PostgreSQL service is running
+  service: name=postgresql state=started enabled=yes
+
 - block:
   - include: create-app-db.yml
 
