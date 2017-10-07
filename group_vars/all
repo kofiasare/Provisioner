@@ -1,14 +1,14 @@
 remote_user: ubuntu
 
+deploy_user: deployer
+
+app_name: your_app_name
+
 ruby_version: 2.4.0
 node_version: 7.7.4
-
-deploy_user: deployer
-app_name: your_app_name
 
 mysql_setup: true
 mysql_port: 3306
 mysql_root_password: root_pass
-
 
 postgres_setup: false

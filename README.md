@@ -13,7 +13,7 @@ For ansible installation check here: [Ansible installation](http://docs.ansible.
 
 ### Configuration
 Need few step of configuration for server provision.
-#### hosts
+#### - hosts
 hosts file will be contain host server credentials and how ansible will be connect with server from local machine.
 
 Do same same step for [production_server] and [staging_server] block:
@@ -34,6 +34,58 @@ Example:
 [staging_server]
 192.168.33.10 ansible_ssh_user=ubuntu ansible_ssh_private_key_file=~/.ssh/id_rsa
 ```
+
+#### - common configuration
+In this section all changes will in 'group_var/all' file.
+
+1. Add server remote user name to 'remote_user' variable
+    ```
+        remote_user: <server_remote_user>
+     ```
+     Example:
+     ```
+        remote_user: ubuntu
+     ```
+2. Set Deploy user name to 'deploy_user' variable
+    ```
+        deploy_user: <deploy_user>
+     ```
+     Example:
+     ```
+        deploy_user: deployer
+     ```
+3. Set App name to 'app_name' variable
+    ```
+        app_name: <application_name>
+     ```
+     Example:
+     ```
+        app_name: demo_app
+     ```
+4. Set ruby and node version to 'ruby_version' & 'node_version' variable
+    ```
+        ruby_version: <ruby_version>
+        node_version: <node_version>
+     ```
+     Example:
+     ```
+        ruby_version: 2.4.0
+        node_version: 7.7.4
+     ```
+5. if Want to use mysql db then Set 'mysql_setup' value true, Otherwise set it is false. And set mysql port and root user password.
+     Example:
+     ```
+        mysql_setup: true
+        mysql_port: 3306
+        mysql_root_password: <root_password>
+     ```
+6. If want to use postgres db the Set 'postgres_setup' value true, Otherwise set it is false.
+     Example:
+     ```
+         postgres_setup: false
+     ```
+#### - Staging and production separate configuration
+In this section all changes will in 'group_var/production_server' and 'group_var/staging_server' file.
 
 ## Usage
 
