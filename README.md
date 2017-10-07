@@ -87,6 +87,30 @@ In this section all changes will in 'group_var/all' file.
 #### - Staging and production separate configuration
 In this section all changes will in 'group_var/production_server' and 'group_var/staging_server' file.
 
+1. Set app environment to production_server and staging_server 'app_env' variable.
+    ```
+        app_env: <environment>
+    ```
+    Example:
+    ```
+        app_env: production #to prodution_server
+        app_end: staging    #to stating_server
+    ```
+2. If using mysql database then add mysql_user name and password to 'mysql_user' and 'mysql_user_password
+     both file.
+    Example:
+    ```
+        mysql_user: applicationProduction
+        mysql_user_password: appPassword
+    ```
+
+3. If using mysql database then add mysql_user name and password to 'postgres_user' and 'postgres_password both file.
+    Example:
+   ```
+       postgres_user: applicationProduction
+       postgres_password: appPassword
+   ```
+
 ## Usage
 
 ## Contributing
