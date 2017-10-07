@@ -13,5 +13,5 @@
     - create-deploy-user    
     - rails-config
     - nginx
-    - mysql
+    - { role: mysql, when: mysql_setup == true }
     - rbenv

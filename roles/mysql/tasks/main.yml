@@ -7,6 +7,6 @@
 
 - include: cleaning.yml
 
-- include: create-app-db.yml                  
+- include: create-app-db.yml
 
 - include: libraries.yml
