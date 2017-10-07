@@ -14,4 +14,5 @@
     - rails-config
     - nginx
     - { role: mysql, when: mysql_setup == true }
+    - postgres
     - rbenv
