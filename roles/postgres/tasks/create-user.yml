@@ -10,6 +10,7 @@
   postgresql_user: >
     name={{postgres_user}}
     role_attr_flags=NOSUPERUSER,NOCREATEDB
+    state=present
 
 - name: Ensure no other user can access the database
   postgresql_privs: >

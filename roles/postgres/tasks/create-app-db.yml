@@ -2,4 +2,8 @@
 - name: create postgress app database
   postgresql_db: >
     db='{{ app_name }}_{{ app_env }}'
+    encoding='UTF-8'
+    lc_collate='en_US.UTF-8'
+    lc_ctype='en_US.UTF-8'
+    template='template0'
     state=present
