@@ -4,9 +4,36 @@ Server provisioning for rails app.
 
 ## Description
 
+Rails application deploy server provisioning for staging and production environment.
+
 ### Prerequisites
 
+Require Ansible in local machine.
+For ansible installation check here: [Ansible installation](http://docs.ansible.com/ansible/latest/intro_installation.html#installation).
+
 ### Configuration
+Need few step of configuration for server provision.
+#### hosts
+hosts file will be contain host server credentials and how ansible will be connect with server from local machine.
+
+Do same same step for [production_server] and [staging_server] block:
+
+1. In 'hosts' file set server ip
+2. Set ansible_ssh_user: server login user name
+3. Set ansible_ssh_private_key_file: server login ssh private key
+
+Example:
+```
+<Server Ip> ansible_ssh_user=<Server login User> ansible_ssh_private_key_file=<server ssh private key path>
+```
+
+```
+[production_server]
+192.168.33.10 ansible_ssh_user=ubuntu ansible_ssh_private_key_file=~/.ssh/id_rsa
+
+[staging_server]
+192.168.33.10 ansible_ssh_user=ubuntu ansible_ssh_private_key_file=~/.ssh/id_rsa
+```
 
 ## Usage
 
