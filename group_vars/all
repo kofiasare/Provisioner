@@ -9,3 +9,6 @@ app_name: your_app_name
 mysql_setup: true
 mysql_port: 3306
 mysql_root_password: root_pass
+
+
+postgres_setup: true
