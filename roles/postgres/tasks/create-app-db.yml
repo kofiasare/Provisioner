@@ -1,0 +1,5 @@
+---
+- name: create postgress app database
+  postgresql_db: >
+    db='{{ app_name }}_{{ app_env }}'
+    state=present
