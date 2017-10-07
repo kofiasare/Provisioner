@@ -8,3 +8,7 @@
 - include: plugins/rbenv-default-gems.yml
 
 - include: install-ruby.yml
+
+- name: Make sure bundler is installed
+  raw: 'RBENV_ROOT={{ rbenv_path }} RBENV_VERSION={{ ruby_version }} {{ rbenv_path }}/bin/rbenv exec gem install bundler'
+  become: true

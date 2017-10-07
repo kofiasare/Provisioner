@@ -1,6 +1,6 @@
 remote_user: ubuntu
 
-ruby_version: 2.4.1
+ruby_version: 2.4.0
 node_version: 7.7.4
 
 deploy_user: deployer
