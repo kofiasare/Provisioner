@@ -23,5 +23,12 @@
   - name: Create postgres user for app database
     postgresql_user: db='{{ app_name }}_{{ app_env }}' name={{postgres_user}} password={{postgres_password}} priv=ALL
 
-  become: yes
+
+  - name: Ensure user does not have unnecessary privilege
+    postgresql_user: name={{postgres_user}} role_attr_flags=NOSUPERUSER,NOCREATEDB
+
+  - name: Ensure no other user can access the database
+    postgresql_privs: db='{{ app_name }}_{{ app_env }}' role=PUBLIC type=database priv=ALL state=absent
+
+  become: true
   become_user: postgres
