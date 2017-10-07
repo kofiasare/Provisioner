@@ -10,9 +10,9 @@
   hosts: production_server
 
   roles:
-    - create-deploy-user    
+    - create-deploy-user
     - rails-config
     - nginx
     - { role: mysql, when: mysql_setup == true }
-    - postgres
+    - { role: postgres, when: postgres_setup == true }
     - rbenv
