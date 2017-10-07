@@ -19,5 +19,9 @@
     postgresql_db: >
       db='{{ app_name }}_{{ app_env }}'
       state=present
+
+  - name: Create postgres user for app database
+    postgresql_user: db='{{ app_name }}_{{ app_env }}' name={{postgres_user}} password={{postgres_password}} priv=ALL
+
   become: yes
   become_user: postgres

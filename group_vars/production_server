@@ -1,3 +1,6 @@
 app_env: production
 mysql_user: applicationProduction
 mysql_user_password: appPassword
+
+postgres_user: applicationProduction
+postgres_password: appPassword
