@@ -1,13 +1,13 @@
 ---
 - name: Setup before gathering facts
-  hosts: stagin_server
+  hosts: staging_server
   gather_facts: no
 
   roles:
     - setup
 
 - name: Configure Server for Rails app
-  hosts: stagin_server
+  hosts: staging_server
 
   roles:
     - create-deploy-user
