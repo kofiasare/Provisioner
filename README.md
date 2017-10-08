@@ -125,11 +125,11 @@ In this section all changes will in 'group_var/production/' and 'group_var/stagi
         id_rsa.put.j2   #put into 'roles/create-deploy-user/templates' path.
     ```
 ## Usage
-For start server provisioning run following command:
+For start server provisioning first clone the repo, and from root run following command:
 
 ```
     $ansible-playbook setup-provision.yml -i hosts/production -e app_env=production    #for production server
-    $ansible-playbook setup-provision.yml -i hosts/staging -e app_env=staging    #for staging server
+    $ansible-playbook setup-provision.yml -i hosts/staging -e app_env=staging          #for staging server
 ```
 
 Run ansible playbook with sudo password:
