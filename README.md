@@ -28,10 +28,10 @@ Example:
 ```
 
 ```
-[production_server]
+[production]
 192.168.33.10 ansible_ssh_user=ubuntu ansible_ssh_private_key_file=~/.ssh/id_rsa
 
-[staging_server]
+[staging]
 192.168.33.10 ansible_ssh_user=ubuntu ansible_ssh_private_key_file=~/.ssh/id_rsa
 ```
 
@@ -85,9 +85,9 @@ In this section all changes will in 'group_var/all' file.
          postgres_setup: false
      ```
 #### - Staging and production separate configuration
-In this section all changes will in 'group_var/production_server' and 'group_var/staging_server' file.
+In this section all changes will in 'group_var/production' and 'group_var/staging' file.
 
-1. Set app environment to production_server and staging_server 'app_env' variable.
+1. Set app environment to production and staging 'app_env' variable.
     ```
         app_env: <environment>
     ```
@@ -120,14 +120,15 @@ In this section all changes will in 'group_var/production_server' and 'group_var
 For start server provisioning run following command:
 
 ```
-    $ansible-playbook production.yml    #for production server
-    $ansible-playbook staging.yml
+    $ansible-playbook setup-provision.yml -e app_env=production    #for production server
+    $ansible-playbook setup-provision.yml -e app_env=staging       #for staging server
 ```
 
 Run ansible playbook with sudo password:
 
 ```
-    $ansible-playbook production.yml --extra-vars "ansible_sudo_pass=<password>"
+    $ansible-playbook production.yml -e app_env=production --extra-vars "ansible_sudo_pass=<password>"
+    $ansible-playbook production.yml -e app_env=staging --extra-vars "ansible_sudo_pass=<password>"  
 ```
 
 ## Contributing

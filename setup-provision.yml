@@ -1,13 +1,13 @@
 ---
 - name: Setup before gathering facts
-  hosts: production_server
+  hosts: '{{ app_env }}'
   gather_facts: no
 
   roles:
     - setup
 
 - name: Configure Server for Rails app
-  hosts: production_server
+  hosts: '{{ app_env }}'
 
   roles:
     - create-deploy-user

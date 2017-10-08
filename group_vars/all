@@ -11,4 +11,4 @@ mysql_setup: true
 mysql_port: 3306
 mysql_root_password: root_pass
 
-postgres_setup: false
+postgres_setup: true
