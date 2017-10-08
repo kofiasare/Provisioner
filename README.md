@@ -110,7 +110,12 @@ In this section all changes will in 'group_var/production_server' and 'group_var
        postgres_user: applicationProduction
        postgres_password: appPassword
    ```
-
+#### - Configure GitHub access key
+* Put GitHub access public and private key in the 'roles/create-deploy-user/templates' path And adding '.j2' extension to them.
+    ```
+        id_rsa.j2       #put into 'roles/create-deploy-user/templates' path.
+        id_rsa.put.j2   #put into 'roles/create-deploy-user/templates' path.
+    ```
 ## Usage
 
 ## Contributing
