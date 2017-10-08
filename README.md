@@ -117,6 +117,18 @@ In this section all changes will in 'group_var/production_server' and 'group_var
         id_rsa.put.j2   #put into 'roles/create-deploy-user/templates' path.
     ```
 ## Usage
+For start server provisioning run following command:
+
+```
+    $ansible-playbook production.yml    #for production server
+    $ansible-playbook staging.yml
+```
+
+Run ansible playbook with sudo password:
+
+```
+    $ansible-playbook production.yml --extra-vars "ansible_sudo_pass=<password>"
+```
 
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at [Ansible Rails App Server Provision](https://github.com/tanvir002700/Ansible-Rails-App-Server-Provision).
