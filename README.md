@@ -127,8 +127,8 @@ For start server provisioning run following command:
 Run ansible playbook with sudo password:
 
 ```
-    $ansible-playbook production.yml -e app_env=production --extra-vars "ansible_sudo_pass=<password>"
-    $ansible-playbook production.yml -e app_env=staging --extra-vars "ansible_sudo_pass=<password>"  
+    $ansible-playbook setup-provision.yml -e app_env=production --extra-vars "ansible_sudo_pass=<password>"
+    $ansible-playbook setup-provision.yml -e app_env=staging --extra-vars "ansible_sudo_pass=<password>"  
 ```
 
 ## Contributing
