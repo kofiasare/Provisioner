@@ -12,7 +12,7 @@
     - ::1
     - "{{ ansible_fqdn }}"  
 
-- name: Create MySQL server user for localhost
+- name: Create MySQL server user {{ mysql_user }}
   mysql_user: >
     user={{ item }}
     password={{ mysql_user_password }}

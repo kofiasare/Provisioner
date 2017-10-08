@@ -1,5 +1,3 @@
-app_env: production
-
 mysql_user: applicationProduction
 mysql_user_password: appPassword
 
