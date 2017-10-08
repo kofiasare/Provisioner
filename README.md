@@ -85,31 +85,37 @@ In this section all changes will in 'group_var/all' file.
          postgres_setup: false
      ```
 #### - Staging and production separate configuration
-In this section all changes will in 'group_var/production' and 'group_var/staging' file.
+In this section all changes will in 'group_var/production/' and 'group_var/staging/' files.
 
-1. Set app environment to production and staging 'app_env' variable.
-    ```
-        app_env: <environment>
-    ```
-    Example:
-    ```
-        app_env: production #to prodution_server
-        app_end: staging    #to stating_server
-    ```
-2. If using mysql database then add mysql_user name and password to 'mysql_user' and 'mysql_user_password
+1. If using mysql database then add mysql_user name and password to 'mysql_user' and 'mysql_user_password
      both file.
     Example:
     ```
+        #group_var/production/database.yml
         mysql_user: applicationProduction
         mysql_user_password: appPassword
     ```
 
-3. If using mysql database then add mysql_user name and password to 'postgres_user' and 'postgres_password both file.
+    ```
+        #group_var/staging/database.yml
+        mysql_user: applicationStaging
+        mysql_user_password: appPassword
+    ```
+
+2. If using postgres database then add postgres user name and password to 'postgres_user' and 'postgres_password both file.
     Example:
    ```
+       #group_var/production/database.yml
        postgres_user: applicationProduction
        postgres_password: appPassword
    ```
+
+   ```
+          #group_var/staging/database.yml
+          postgres_user: applicationProduction
+          postgres_password: appPassword
+      ```
+      
 #### - Configure GitHub access key
 * Put GitHub access public and private key in the 'roles/create-deploy-user/templates' path And adding '.j2' extension to them.
     ```
