@@ -120,15 +120,15 @@ In this section all changes will in 'group_var/production' and 'group_var/stagin
 For start server provisioning run following command:
 
 ```
-    $ansible-playbook setup-provision.yml -e app_env=production    #for production server
-    $ansible-playbook setup-provision.yml -e app_env=staging       #for staging server
+    $ansible-playbook setup-provision.yml -i hosts/production -e app_env=production    #for production server
+    $ansible-playbook setup-provision.yml -i hosts/staging -e app_env=staging    #for staging server
 ```
 
 Run ansible playbook with sudo password:
 
 ```
-    $ansible-playbook setup-provision.yml -e app_env=production --extra-vars "ansible_sudo_pass=<password>"
-    $ansible-playbook setup-provision.yml -e app_env=staging --extra-vars "ansible_sudo_pass=<password>"  
+    $ansible-playbook setup-provision.yml -i hosts/production -e app_env=production --extra-vars "ansible_sudo_pass=<password>"
+    $ansible-playbook setup-provision.yml -i hosts/staging -e app_env=staging  --extra-vars "ansible_sudo_pass=<password>"
 ```
 
 ## Contributing
