@@ -16,9 +16,9 @@ Need few step of configuration for server provision.
 #### - hosts
 hosts file will be contain host server credentials and how ansible will be connect with server from local machine.
 
-Do same same step for [production_server] and [staging_server] block:
+Do same same step for [production] and [staging] block:
 
-1. In 'hosts' file set server ip
+1. In 'hosts/production' or 'hosts/staging' file set server ip
 2. Set ansible_ssh_user: server login user name
 3. Set ansible_ssh_private_key_file: server login ssh private key
 
@@ -28,9 +28,11 @@ Example:
 ```
 
 ```
+#hosts/production
 [production]
 192.168.33.10 ansible_ssh_user=ubuntu ansible_ssh_private_key_file=~/.ssh/id_rsa
 
+#hosts/staging
 [staging]
 192.168.33.10 ansible_ssh_user=ubuntu ansible_ssh_private_key_file=~/.ssh/id_rsa
 ```
@@ -115,7 +117,7 @@ In this section all changes will in 'group_var/production/' and 'group_var/stagi
           postgres_user: applicationProduction
           postgres_password: appPassword
       ```
-      
+
 #### - Configure GitHub access key
 * Put GitHub access public and private key in the 'roles/create-deploy-user/templates' path And adding '.j2' extension to them.
     ```
