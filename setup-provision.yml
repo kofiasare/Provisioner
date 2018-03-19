@@ -16,3 +16,4 @@
     - { role: mysql, when: mysql_setup == true }
     - { role: postgres, when: postgres_setup == true }
     - rbenv
+    - redis

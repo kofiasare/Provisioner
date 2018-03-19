@@ -1,0 +1,9 @@
+---
+- name: Ensure Redis is installed.
+  apt:
+    name: '{{ redis_package }}'
+    state: installed
+    force: yes
+    update_cache: yes
+    cache_valid_time: 3600
+  become: true
