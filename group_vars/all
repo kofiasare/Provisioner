@@ -7,7 +7,7 @@ app_name: your_app_name
 ruby_version: 2.4.0
 node_version: 7.7.4
 
-mysql_setup: true
+mysql_setup: false
 mysql_port: 3306
 mysql_root_password: root_pass
 
