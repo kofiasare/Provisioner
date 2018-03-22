@@ -4,11 +4,7 @@
 - name: Ensure the PostgreSQL service is running
   service: name=postgresql state=started enabled=yes
 
-- block:
-  - include: create-app-db.yml
-
-  - include: create-user.yml
-    notify:
-      - restart postgresql
+- include: create-user.yml
+  notify:
+    - restart postgresql
   become: true
-  become_user: postgres
