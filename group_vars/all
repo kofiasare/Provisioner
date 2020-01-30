@@ -1,14 +1,5 @@
 remote_user: ubuntu
-
 deploy_user: deployer
-
-app_name: your_app_name
-
-ruby_version: 2.4.0
-node_version: 7.7.4
-
-mysql_setup: false
-mysql_port: 3306
-mysql_root_password: root_pass
-
+app_name: veryfy_api
+ruby_version: 2.6.5
 postgres_setup: true

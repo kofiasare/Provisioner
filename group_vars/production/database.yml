@@ -1,5 +1,2 @@
-mysql_user: applicationProduction
-mysql_user_password: appPassword
-
 postgres_user: discourse
 postgres_password: discourse
