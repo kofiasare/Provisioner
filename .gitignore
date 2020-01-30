@@ -3,3 +3,4 @@ log/*
 *.retry
 /roles/create-deploy-user/templates/authorized_keys.j2
 tmp/**/*
+dump.rdb
