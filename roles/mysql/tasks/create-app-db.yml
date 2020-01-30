@@ -1,6 +1,0 @@
-- name: Create the MySQL database - {{ app_name }}_{{ app_env }}
-  mysql_db: >
-    db='{{ app_name }}_{{ app_env }}'
-    state=present
-    login_password={{ mysql_root_password }}
-    login_user=root    
