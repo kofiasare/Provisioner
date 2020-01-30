@@ -1,6 +1,6 @@
-# Rails-App-Server-Provision ( Ansbile )
+# Veryfy Backend API Server-Provision ( Ansbile )
 
-Server provisioning for rails app.
+Server provisioning for veryfy api.
 
 ## Description
 
