@@ -4,11 +4,11 @@
   ignore_errors: yes
 
 - debug:
-    var: release.stdout    
-    
+    var: release.stdout
+
 - name: update apt cache
   raw: apt-get -y update
-  become: true    
+  become: true
 
 - name: upgrade packages
   raw: apt-get -y dist-upgrade
@@ -21,17 +21,13 @@
 - name: Install python2 for xenial dist
   raw: apt-get install -y --force-yes python-simplejson
   when: release.stdout == 'xenial'
-  become: true  
+  become: true
 
 - name: Install dependencies
   apt:
-    name: '{{ item }}'
-    state: installed
+    name: ["make", "git", "gcc"]
+    state: latest
     force: yes
     update_cache: yes
     cache_valid_time: 3600
-  with_items:
-      - make
-      - git
-      - gcc
-  become: true  
+  become: true

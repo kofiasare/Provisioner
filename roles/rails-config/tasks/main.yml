@@ -1,7 +1,7 @@
 - name: Install application specific dependencies
   apt: >
     package={{ item }}
-    state=installed
+    state=latest
     force=yes
     update_cache=yes
     cache_valid_time=3600

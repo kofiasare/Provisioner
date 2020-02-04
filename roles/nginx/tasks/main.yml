@@ -1,7 +1,7 @@
 - name: Install nginx
   apt: >
     package={{ item }} 
-    state=installed 
+    state=latest
     force=yes 
     update_cache=yes 
     cache_valid_time=3600
@@ -16,4 +16,4 @@
     dest: /etc/nginx/nginx.conf
   become: true
   notify:
-    - restart nginx  
+    - restart nginx

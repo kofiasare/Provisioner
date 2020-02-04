@@ -1,18 +1,33 @@
 ---
 - name: Setup before gathering facts
-  hosts: '{{ app_env }}'
+  hosts: "{{ app_env }}"
   gather_facts: no
 
   roles:
     - setup
 
-- name: Configure Server for Rails app
-  hosts: '{{ app_env }}'
-
+- name: Configure Server for Veryfy_2.0 API
+  hosts: "{{ app_env }}"
   roles:
     - create-deploy-user
     - rails-config
     - nginx
-    - { role: postgres, when: postgres_setup == true }
     - rbenv
     - redis
+    - {
+        role: postgres,
+        when: postgres_setup == true,
+        postgres_user: "{{ pg_user }}",
+        postgres_password: "{{ pg_pass }}",
+      }
+
+- name: "Install Minio (File Store)"
+  hosts: "{{ app_env }}"
+  become: yes
+  roles:
+    - { role: atosatto.minio }
+  vars:
+    minio_access_key: "{{ minio_access_key }}"
+    minio_secret_key: "{{ minio_secret_key }}"
+    minio_server_datadirs: ["/minio-store"]
+    minio_install_client: false
