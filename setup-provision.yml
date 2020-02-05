@@ -2,7 +2,6 @@
 - name: Setup before gathering facts
   hosts: "{{ app_env }}"
   gather_facts: no
-
   roles:
     - setup
 

@@ -25,7 +25,7 @@
 
 - name: Install dependencies
   apt:
-    name: ["make", "git", "gcc"]
+    name: ["make", "git", "gcc", "supervisor"]
     state: latest
     force: yes
     update_cache: yes
