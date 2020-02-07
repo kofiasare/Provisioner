@@ -1,5 +1,0 @@
-{{ deploy_user }} ALL=NOPASSWD:/bin/rm /etc/nginx/sites-enabled/default
-{{ deploy_user }} ALL=NOPASSWD:/bin/ln -nfs /home/{{ deploy_user }}/* /etc/nginx/conf.d/*
-{{ deploy_user }} ALL=NOPASSWD:/bin/ln -nfs /home/{{ deploy_user }}/* /etc/nginx/sites-enabled/*
-{{ deploy_user }} ALL=NOPASSWD:/bin/ln -nfs /home/{{ deploy_user }}/* /etc/init.d/*
-{{ deploy_user }} ALL=NOPASSWD:/etc/init.d/nginx

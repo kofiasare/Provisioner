@@ -8,17 +8,16 @@
 - name: Configure Server for Veryfy_2.0 API
   hosts: "{{ app_env }}"
   roles:
-    - create-deploy-user
     - rails-config
     - nginx
-    - rbenv
-    - redis
     - {
         role: postgres,
         when: postgres_setup == true,
         postgres_user: "{{ pg_user }}",
         postgres_password: "{{ pg_pass }}",
       }
+    - rbenv
+    - redis
 
 - name: "Install Minio (File Store)"
   hosts: "{{ app_env }}"

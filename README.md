@@ -130,17 +130,27 @@ and contributors are expected to adhere to the [Contributor Covenant](http://con
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
+## Provisioning
+
 1. Copy public key of your computer to the server to be provisioned such that you can login
    ssh-copy-id root@<server-to-be-provisioned>
 
-2. Enter the CI server switch to the go user `su go` and copy public key of CI server to the server to be provisioned such that you can login from the CI server to the provision servre
+2. Add a `deploy` user to the server to be provisioned
 
-ssh-copy-id root@<server-to-be-provisioned>
+3. Add the `deploy` user to the sudoers
+   https://www.digitalocean.com/community/tutorials/how-to-create-a-sudo-user-on-ubuntu-quickstart
 
-NB: when prompted for password, use root password set on linode for server under provisioning
+4. Run apt update and upgrade on the provision server.
 
-3. Run apt update and upgrade on the provision server.
+5. Copy public key of your computer to the server to be provisioned such that you can login
+   ssh-copy-id deploy@<server-to-be-provisioned>
 
-4. Run ansible provision playbook
+   NB: using deploy user
 
-5.
+6. Enter the CI server switch to the go user `su go` and copy public key of CI server to the server to be provisioned such that you can login from the CI server to the provision servre
+
+   ssh-copy-id deploy@<server-to-be-provisioned>
+
+NB: from the above, when prompted for password, use root password set on linode for server under provisioning
+
+7. Run ansible provision playbook
