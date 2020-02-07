@@ -10,8 +10,8 @@
     file:
       path: '{{ rbenv_path }}'
       state: directory
-      group: '{{ remote_user }}'
-      owner: '{{ remote_user }}'
+      group: root
+      owner: root
     become: true
 
   - name: Clone rbenv

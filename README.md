@@ -45,23 +45,15 @@ Example:
 
 In this section all changes will be in 'group_var/all' file.
 
-1. Add server remote user name to 'remote_user' variable
-   ```
-       remote_user: <server_remote_user>
-   ```
-   Example:
-   ```
-      remote_user: ubuntu
-   ```
-2. Set Deploy user name to 'deploy_user' variable
+1. Set Deploy user name to 'deploy_user' variable
    ```
        deploy_user: <deploy_user>
    ```
    Example:
    ```
-      deploy_user: deployer
+      deploy_user: deploy
    ```
-3. Set App name to 'app_name' variable
+2. Set App name to 'app_name' variable
    ```
        app_name: <application_name>
    ```
@@ -69,7 +61,7 @@ In this section all changes will be in 'group_var/all' file.
    ```
       app_name: demo_app
    ```
-4. Set ruby version to 'ruby_version' variable
+3. Set ruby version to 'ruby_version' variable
 
    ```
        ruby_version: <ruby_version>
@@ -137,3 +129,18 @@ and contributors are expected to adhere to the [Contributor Covenant](http://con
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+1. Copy public key of your computer to the server to be provisioned such that you can login
+   ssh-copy-id root@<server-to-be-provisioned>
+
+2. Enter the CI server switch to the go user `su go` and copy public key of CI server to the server to be provisioned such that you can login from the CI server to the provision servre
+
+ssh-copy-id root@<server-to-be-provisioned>
+
+NB: when prompted for password, use root password set on linode for server under provisioning
+
+3. Run apt update and upgrade on the provision server.
+
+4. Run ansible provision playbook
+
+5.

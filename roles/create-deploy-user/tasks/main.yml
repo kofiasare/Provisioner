@@ -22,20 +22,9 @@
 - name: "Update {{ deploy_user }}'s allowed keys"
   copy:
     remote_src: true
-    src: /home/{{ remote_user }}/.ssh/authorized_keys
+    src: /root/.ssh/authorized_keys
     dest: /home/{{ deploy_user }}/.ssh/authorized_keys
     group: '{{ deploy_user }}'
     owner: '{{ deploy_user }}'
   become: true
-
-- name: Install Github access key
-  template:
-    src: '{{ item.name }}.j2'
-    dest: '/home/{{ deploy_user }}/.ssh/{{ item.name }}'
-    group: '{{ deploy_user }}'
-    owner: '{{ deploy_user }}'
-    mode: '{{ item.mode }}'
-  with_items:
-    - { name: id_rsa, mode: 400 }
-    - { name: id_rsa.pub, mode: 664 }
-  become: true
+  
