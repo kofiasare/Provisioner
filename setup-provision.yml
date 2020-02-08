@@ -18,6 +18,12 @@
       }
     - rbenv
     - redis
+    - role: weareinteractive.environment
+      vars:
+        environment_config:
+          PATH: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+      become: yes
+      become_user: root
 
 - name: "Install Minio (File Store)"
   hosts: "{{ app_env }}"
