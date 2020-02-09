@@ -14,3 +14,15 @@
     - python-psycopg2
     - python3-psycopg2
   become: true
+
+# https://blog.bigbinary.com/2016/01/23/configure-postgresql-to-allow-remote-connection.html
+- name: Configure postgres to allow remote connections
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - { src: postgresql.conf.j2, dest: /etc/postgresql/10/main/postgresql.conf }
+    - { src: pg_hba.conf.j2, dest: /etc/postgresql/10/main/pg_hba.conf }
+  notify:
+    - restart postgresql
+  become: true
