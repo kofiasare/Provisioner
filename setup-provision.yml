@@ -1,37 +1,37 @@
 ---
-- name: Setup before gathering facts
-  hosts: "{{ app_env }}"
-  gather_facts: no
-  roles:
-    - setup
+# - name: Setup before gathering facts
+#   hosts: "{{ app_env }}"
+#   gather_facts: no
+#   roles:
+#     - setup
 
 - name: Configure Server for Veryfy_2.0 API
   hosts: "{{ app_env }}"
   roles:
-    - rails-config
-    - nginx
+    # - rails-config
+    # - nginx
     - {
         role: postgres,
         when: postgres_setup == true,
-        postgres_user: "{{ pg_user }}",
-        postgres_password: "{{ pg_pass }}",
+        pg_user: "veryfy",
+        pg_user_password: "{{ pg_user_pass }}",
       }
-    - rbenv
-    - redis
-    - role: weareinteractive.environment
-      vars:
-        environment_config:
-          PATH: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
-      become: yes
-      become_user: root
+#     - rbenv
+#     - redis
+#     - role: weareinteractive.environment
+#       vars:
+#         environment_config:
+#           PATH: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+#       become: yes
+#       become_user: root
 
-- name: "Install Minio (File Store)"
-  hosts: "{{ app_env }}"
-  become: yes
-  roles:
-    - { role: atosatto.minio }
-  vars:
-    minio_access_key: "{{ minio_access_key }}"
-    minio_secret_key: "{{ minio_secret_key }}"
-    minio_server_datadirs: ["/minio-store"]
-    minio_install_client: false
+# - name: "Install Minio (File Store)"
+#   hosts: "{{ app_env }}"
+#   become: yes
+#   roles:
+#     - { role: atosatto.minio }
+#   vars:
+#     minio_access_key: "{{ minio_access_key }}"
+#     minio_secret_key: "{{ minio_secret_key }}"
+#     minio_server_datadirs: ["/minio-store"]
+#     minio_install_client: false
