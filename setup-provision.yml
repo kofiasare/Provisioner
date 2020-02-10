@@ -10,14 +10,14 @@
   roles:
     # - rails-config
     # - nginx
-    - {
-        role: postgres,
-        when: postgres_setup == true,
-        pg_user: "veryfy",
-        pg_user_password: "{{ pg_user_pass }}",
-      }
-#     - rbenv
-#     - redis
+    # - {
+    #     role: postgres,
+    #     when: postgres_setup == true,
+    #     pg_user: "veryfy",
+    #     pg_user_password: "{{ pg_user_pass }}",
+    #   }
+    #     - rbenv
+    - redis
 #     - role: weareinteractive.environment
 #       vars:
 #         environment_config:
