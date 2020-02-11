@@ -10,19 +10,14 @@
     - nginx
   become: true
 
+# https://www.linode.com/docs/web-servers/nginx/use-nginx-reverse-proxy/#basic-configuration-for-an-nginx-reverse-proxy
 - name: Update default Nginx config
   template:
-    src: nginx.conf.j2
-    dest: /etc/nginx/nginx.conf
-  become: true
-  notify:
-    - restart nginx
-
-# https://www.linode.com/docs/web-servers/nginx/use-nginx-reverse-proxy/#basic-configuration-for-an-nginx-reverse-proxy
-- name: Setup Nginx as reverse proxy
-  template:
-    src: veryfy_api.conf.j2
-    dest: /etc/nginx/conf.d/veryfy_api.conf
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - { src: nginx.conf.j2, dest: /etc/nginx/nginx.conf }
+    - { src: veryfy_api.conf.j2, dest: /etc/nginx/conf.d/veryfy_api.conf }
   become: true
   notify:
     - restart nginx
