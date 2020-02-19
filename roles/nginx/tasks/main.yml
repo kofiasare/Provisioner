@@ -17,7 +17,7 @@
     dest: "{{ item.dest }}"
   with_items:
     - { src: nginx.conf.j2, dest: /etc/nginx/nginx.conf }
-    - { src: veryfy_api.conf.j2, dest: /etc/nginx/conf.d/veryfy_api.conf }
+    - { src: veryfy_api.conf.j2, dest: /etc/nginx/sites-available/default }
   become: true
   notify:
     - restart nginx
