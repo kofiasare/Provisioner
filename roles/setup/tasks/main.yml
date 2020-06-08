@@ -11,7 +11,7 @@
   become: true
 
 - name: upgrade packages
-  raw: apt-get -y dist-upgrade
+  raw: apt-get -y upgrade
   become: true
 
 - name: clear up
