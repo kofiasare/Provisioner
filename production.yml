@@ -1,12 +1,12 @@
 ---
 - name: Setup before gathering facts.
-  hosts: production
+ hosts: production
   gather_facts: no
   roles:
     - setup
 
 - name: Provision a production server for veryfy api.
-  hosts: production
+ hosts: production
   roles:
     - nginx
     - redis

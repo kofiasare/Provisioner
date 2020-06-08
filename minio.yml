@@ -6,7 +6,7 @@
     - setup
 
 - name: Provision minio object store.
-  hosts: minio
+ hosts: minio
   roles:
     - nginx
     - role: atosatto.minio

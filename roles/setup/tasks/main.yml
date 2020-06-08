@@ -18,14 +18,9 @@
   raw: apt-get -y autoremove && apt-get -y clean
   become: true
 
-- name: Install python2 for xenial dist
-  raw: apt-get install -y --force-yes python-simplejson
-  when: release.stdout == 'xenial'
-  become: true
-
 - name: Install dependencies
   apt:
-    name: ["make", "git", "gcc", "g++", "supervisor"]
+    name: ["make", "git", "gcc", "g++", "acl", "supervisor"]
     state: latest
     force: yes
     update_cache: yes

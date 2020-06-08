@@ -1,12 +1,9 @@
 - name: Install application specific dependencies
-  apt: >
-    package={{ item }}
-    state=latest
-    force=yes
-    update_cache=yes
-    cache_valid_time=3600
+  apt:
+    name: ["imagemagick", "default-jre"]
+    state: latest
+    force: yes
+    update_cache: yes
+    cache_valid_time: 3600
   when: ansible_os_family == 'Debian'
-  with_items:
-    - imagemagick
-    - default-jre
   become: true

@@ -5,4 +5,5 @@ server_name: api.veryfy.net
 # API
 deploy_user: deploy
 app_name: veryfy_api
+app_env: production
 ruby_version: 2.6.5

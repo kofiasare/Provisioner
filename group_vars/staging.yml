@@ -5,4 +5,5 @@ server_name: api-staging.veryfy.net
 # API
 deploy_user: deploy
 app_name: veryfy_api
+app_env: staging
 ruby_version: 2.6.5
