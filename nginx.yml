@@ -1,0 +1,12 @@
+---
+- name: Setup before gathering facts.
+  hosts: nginx
+  gather_facts: no
+  roles:
+    - setup
+
+- name: Provision minio object store.
+  hosts: nginx
+  gather_facts: no
+  roles:
+    - nginx
