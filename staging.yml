@@ -17,8 +17,20 @@
     - rails-config
     - rbenv
     - role: weareinteractive.environment
+    vars:
+      environment_config:
+        PATH: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+    become: yes
+    become_user: root
+    - role: elastic.elasticsearch
       vars:
-        environment_config:
-          PATH: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
-      become: yes
-      become_user: root
+        es_data_dirs:
+          - "/opt/elasticsearch/data"
+        es_log_dir: "/opt/elasticsearch/logs"
+        es_config:
+          node.name: "staging"
+          http.port: 9200
+          node.data: false
+          node.master: true
+          bootstrap.memory_lock: true
+        es_heap_size: 1g
