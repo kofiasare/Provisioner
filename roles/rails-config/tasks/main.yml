@@ -1,6 +1,6 @@
 - name: Install application specific dependencies
   apt:
-    name: ["imagemagick", "default-jre"]
+    name: ["imagemagick", "default-jre", "libvips-tools"]
     state: latest
     force: yes
     update_cache: yes
