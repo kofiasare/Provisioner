@@ -1,14 +1,9 @@
 ---
 - name: Setup before gathering facts.
-  hosts: staging
+  hosts: all
   gather_facts: no
   roles:
     - setup
-
-- name: Provision a staging server for veryfy api.
-  hosts: staging
-  roles:
-    - nginx
     - redis
     - role: postgres
       vars:
