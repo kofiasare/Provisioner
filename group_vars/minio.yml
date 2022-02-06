@@ -1,5 +1,0 @@
-# Nginx
-server_address: 139.162.131.30
-server_name: store.veryfy.net
-
-app_env: minio

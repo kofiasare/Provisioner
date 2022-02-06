@@ -1,0 +1,3 @@
+deploy_user: vagrant
+app_name: veryfy_api
+app_env: development
