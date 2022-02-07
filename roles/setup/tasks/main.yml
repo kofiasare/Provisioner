@@ -20,7 +20,7 @@
 
 - name: Install dependencies
   apt:
-    name: ["make", "git", "gcc", "g++", "acl", "supervisor"]
+    name: ["make", "git", "gcc", "g++", "acl", "net-tools"]
     state: latest
     force: yes
     update_cache: yes

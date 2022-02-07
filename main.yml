@@ -1,24 +1,24 @@
 ---
 - hosts: all
   roles:
-    # - setup
-    # - redis
+    - setup
+    - redis
     - role: postgres
       vars:
-        pg_user: "veryfy"
+        pg_user: "{{ deploy_user }}"
         pg_user_password: "{{ pg_user_pass }}"
 
-    - rails-config
-    - role: rbenv
-      vars:
-        ruby_version: 3.0.1
+      - rails-config
+      - role: rbenv
+        vars:
+          ruby_version: 3.0.1
 
-    - role: atosatto.minio
-      vars:
-        minio_server_addr: "127.0.0.1:9500"
-        minio_access_key: "{{ minio_access_key }}"
-        minio_secret_key: "{{ minio_secret_key }}"
-        minio_server_datadirs: ["/minio-store"]
+      - role: atosatto.minio
+        vars:
+          minio_server_addr: "0.0.0.0:9500"
+          minio_access_key: "{{ minio_access_key }}"
+          minio_secret_key: "{{ minio_secret_key }}"
+          minio_server_datadirs: ["/minio-store"]
 
       become: yes
       become_user: root
