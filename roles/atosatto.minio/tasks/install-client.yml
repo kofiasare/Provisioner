@@ -1,5 +1,4 @@
 ---
-
 - name: Compose the Minio client download url
   set_fact:
     _minio_client_download_url: "https://dl.minio.io/client/mc/release/linux-{{ go_arch_map[ansible_architecture] | default(ansible_architecture) }}/mc"

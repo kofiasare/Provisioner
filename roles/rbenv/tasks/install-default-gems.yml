@@ -1,0 +1,9 @@
+---
+- name: Install default gems
+  shell:
+    warn: false
+    cmd: |
+      {{ rbenv_path }}/shims/gem install mailcatcher
+
+- name: rehash
+  raw: "{{ rbenv_path }}/bin/rbenv rehash"

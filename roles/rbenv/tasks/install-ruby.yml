@@ -1,15 +1,17 @@
 ---
 - name: Check for ruby version {{ ruby_version }}
   stat:
-    path: '{{ rbenv_path }}/versions/{{ ruby_version }}'
+    path: "{{ rbenv_path }}/versions/{{ ruby_version }}"
   register: ruby
-  ignore_errors: yes
+  ignore_errors: true
 
 - block:
-  - name: Install ruby {{ ruby_version }}
-    raw: 'RBENV_ROOT={{ rbenv_path }} {{ rbenv_path }}/bin/rbenv install {{ ruby_version }}'
-    become: true
-    notify:
-      - rehash
-      - set Global ruby
+    - name: Install ruby {{ ruby_version }}
+      shell:
+        warn: false
+        cmd: |
+          RBENV_ROOT={{ rbenv_path }} {{ rbenv_path }}/bin/rbenv install {{ ruby_version }}
+          RBENV_ROOT={{ rbenv_path }} {{ rbenv_path }}/bin/rbenv global {{ ruby_version }}
+          RBENV_ROOT={{ rbenv_path }} {{ rbenv_path }}/bin/rbenv rehash
+
   when: ruby.stat.exists == false
