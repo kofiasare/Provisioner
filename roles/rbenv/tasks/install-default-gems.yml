@@ -3,7 +3,7 @@
   shell:
     warn: false
     cmd: |
-      {{ rbenv_path }}/shims/gem install mailcatcher
+      {{ rbenv_path }}/shims/gem install bundler mailcatcher
 
 - name: rehash
   raw: "{{ rbenv_path }}/bin/rbenv rehash"

@@ -17,10 +17,15 @@
     - role: atosatto.minio
       vars:
         minio_server_addr: "0.0.0.0:9500"
-        minio_access_key: "{{ minio_access_key }}"
-        minio_secret_key: "{{ minio_secret_key }}"
+        minio_root_user: "{{ minio_access_key }}"
+        minio_root_password: "{{ minio_secret_key }}"
         minio_server_datadirs: ["/minio-store"]
         minio_server_bin: /usr/local/minio
         minio_client_bin: /usr/local/mc
       become: yes
       become_user: root
+
+    - role: elastic.elasticsearch
+      vars:
+        es_version: 7.17.0
+        es_heap_size: 512m
