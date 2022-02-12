@@ -7,3 +7,15 @@
 
 - name: rehash
   raw: "{{ rbenv_path }}/bin/rbenv rehash"
+
+- name: Ensure mailcatcher is configured.
+  template:
+    src: mailcatcher.service.j2
+    dest: "{{ mailcatcher_path }}"
+    mode: 0744
+  become: true
+
+- name: Ensure mailcatcher is running and enabled on boot.
+  service: "name=mailcatcher state=started enabled=yes"
+  become: true
+  notify: restart mailcatcher
