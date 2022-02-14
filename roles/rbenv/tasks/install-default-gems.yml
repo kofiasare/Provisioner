@@ -14,8 +14,8 @@
     dest: "{{ mailcatcher_path }}"
     mode: 0744
   become: true
+  notify: restart mailcatcher
 
 - name: Ensure mailcatcher is running and enabled on boot.
   service: "name=mailcatcher state=started enabled=yes"
   become: true
-  notify: restart mailcatcher

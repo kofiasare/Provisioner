@@ -7,7 +7,7 @@ After=systemd-user-sessions.service
 Type=simple
 Restart=on-failure
 User=vagrant
-ExecStart=/home/vagrant/.rbenv/shims/mailcatcher --foreground --smtp-ip 0.0.0.0 --ip 0.0.0.0
+ExecStart=/home/vagrant/.rbenv/shims/mailcatcher --foreground --http-ip 0.0.0.0 --messages-limit 10
 
 [Install]
 WantedBy=multi-user.target
