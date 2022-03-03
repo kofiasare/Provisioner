@@ -1,0 +1,37 @@
+---
+- name: Check for meilisearch installation
+  stat:
+    path: "{{ meilisearch_path }}"
+  register: meilisearch
+  ignore_errors: true
+
+- block:
+    - name: Add meilisearch repository into sources list
+      apt_repository:
+        repo: deb [trusted=yes] https://apt.fury.io/meilisearch/ /
+        state: present
+        filename: fury-list
+      become: true
+
+    - name: Install Meilisearch
+      apt:
+        name: ["meilisearch-http"]
+        state: latest
+        force: yes
+        update_cache: yes
+        cache_valid_time: 3600
+      become: true
+
+  when: meilisearch.stat.exists == false
+
+- name: Ensure meilisearch is configured.
+  template:
+    src: meilisearch.service.j2
+    dest: "{{ meilisearch_path }}"
+    mode: 0744
+  become: true
+  notify: restart meilisearch
+
+- name: Ensure meilisearch is running and enabled on boot.
+  service: "name=meilisearch state=started enabled=yes"
+  become: true

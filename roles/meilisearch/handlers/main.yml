@@ -1,0 +1,4 @@
+---
+- name: restart meilisearch
+  service: name=meilisearch state=restarted
+  become: true

@@ -1,7 +1,7 @@
 ---
 - name: Install dependencies
   apt:
-    name: ["libssl-dev", "libreadline-dev", "zlib1g-dev"]
+    name: ["libssl-dev", "libreadline-dev", "zlib1g-dev", "libsqlite3-dev"]
     state: latest
     force: yes
     update_cache: yes

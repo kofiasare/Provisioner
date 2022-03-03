@@ -1,0 +1,18 @@
+[Unit]
+Description = Meilisearch
+After=systemd-user-sessions.service
+
+[Service]
+Type=simple
+Restart=on-failure
+User=vagrant
+
+{% if production %}
+ExecStart=/usr/bin/meilisearch --http-addr {{meilisearch_http_addr}} --env production --db-path {{meilisearch_db_path}} --master-key {{meilisearch_master_key}}  --no-analytics=true
+{% else %}
+ExecStart=/usr/bin/meilisearch --http-addr {{meilisearch_http_addr}} --db-path {{meilisearch_db_path}} --no-analytics=true
+{% endif %}
+
+
+[Install]
+WantedBy=default.target

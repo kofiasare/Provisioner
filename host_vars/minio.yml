@@ -1,0 +1,5 @@
+deploy_user: minio
+
+# nginx
+server_address: 139.162.131.30
+server_name: store.veryfy.net

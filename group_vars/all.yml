@@ -1,0 +1,4 @@
+app_name: veryfy_api
+
+# postgres
+pg_user: veryfy

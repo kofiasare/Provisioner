@@ -1,0 +1,6 @@
+---
+meilisearch_path: /etc/systemd/system/meilisearch.service
+meilisearch_db_path: /home/vagrant/data.ms
+meilisearch_http_addr: "0.0.0.0:7700"
+production: false
+meilisearch_master_key: ""

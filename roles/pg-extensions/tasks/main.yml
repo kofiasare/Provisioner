@@ -1,0 +1,22 @@
+---
+- name: "Create shared_extensions schema"
+  postgresql_query:
+    db: "{{ app_name }}_{{ app_env }}"
+    query: CREATE SCHEMA IF NOT EXISTS shared_extensions
+    login_user: "{{ pg_user }}"
+    login_password: "{{ pg_user_password }}"
+
+- name: "Enable PGCRYPTO extension on shared_extensions schema"
+  postgresql_ext:
+    name: pgcrypto
+    db: "{{ app_name }}_{{ app_env }}"
+    schema: shared_extensions
+  become_user: postgres
+  become: true
+
+- name: "Grant usage of shared_extensions to public schema"
+  postgresql_query:
+    db: "{{ app_name }}_{{ app_env }}"
+    query: GRANT usage ON SCHEMA shared_extensions to public
+    login_user: "{{ pg_user }}"
+    login_password: "{{ pg_user_password }}"
