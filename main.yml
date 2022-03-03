@@ -17,7 +17,7 @@
     - role: atosatto.minio
       vars:
         minio_server_addr: "0.0.0.0:9500"
-        minio_console_server_aadr: "0.0.0.0:9600"
+        minio_console_server_addr: "0.0.0.0:9600"
         minio_root_user: "{{ minio_access_key }}"
         minio_root_password: "{{ minio_secret_key }}"
         minio_server_datadirs: ["/minio-store"]

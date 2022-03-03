@@ -12,7 +12,7 @@ minio_server_envfile: /etc/default/minio
 
 # Minio server listen address
 minio_server_addr: "127.0.0.1:9000"
-minio_console_server_aadr: "127.0.0.1:9001"
+minio_console_server_addr: "127.0.0.1:9001"
 
 # Minio server data directories
 minio_server_datadirs:
