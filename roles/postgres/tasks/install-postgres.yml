@@ -1,7 +1,8 @@
 ---
 - name: Install Postgres
   apt:
-    name: ["postgresql", "postgresql-contrib", "libpq-dev", "python3-psycopg2"]
+    name:
+      ["postgresql-13", "postgresql-contrib", "libpq-dev", "python3-psycopg2"]
     state: latest
     force: yes
     update_cache: yes
@@ -15,8 +16,8 @@
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
   with_items:
-    - { src: postgresql.conf.j2, dest: /etc/postgresql/12/main/postgresql.conf }
-    - { src: pg_hba.conf.j2, dest: /etc/postgresql/12/main/pg_hba.conf }
+    - { src: postgresql.conf.j2, dest: /etc/postgresql/13/main/postgresql.conf }
+    - { src: pg_hba.conf.j2, dest: /etc/postgresql/13/main/pg_hba.conf }
 
   notify:
     - restart postgresql

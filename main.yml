@@ -1,31 +1,33 @@
 ---
 - hosts: staging
-  gather_facts: no
+  gather_facts: yes
   roles:
-    - setup
-    - nginx
-    - redis
-    - role: postgres
-      vars:
-        pg_user: "{{ pg_user }}"
-        pg_user_password: "{{ pg_user_pass }}"
+    # - setup
+    # - nginx
+    # - redis
+    # - role: meilisearch
+    #   vars:
+    #     meilisearch_db_path: /home/deploy/data.ms
 
-    - pg-extensions
+    # - role: postgres
+    #   vars:
+    #     pg_user_password: "{{ pg_user_pass }}"
+
+    # - role: pg-extensions
+    #   vars:
+    #     pg_user_password: "{{ pg_user_pass }}"
+
     - rails-config
     - role: rbenv
       vars:
         ruby_version: 3.0.1
 
-    - role: atosatto.minio
-      vars:
-        minio_server_addr: "0.0.0.0:9500"
-        minio_console_server_addr: "0.0.0.0:9600"
-        minio_root_user: "{{ minio_access_key }}"
-        minio_root_password: "{{ minio_secret_key }}"
-        minio_server_datadirs: ["/minio-store"]
-        minio_server_bin: /usr/local/minio
-        minio_client_bin: /usr/local/mc
-      become: yes
-      become_user: root
-
-    - role: meilisearch
+    # - role: atosatto.minio
+    #   vars:
+    #     minio_root_user: "{{ minio_access_key }}"
+    #     minio_root_password: "{{ minio_secret_key }}"
+    #     minio_server_datadirs: ["/home/minio/minio-store"]
+    #     minio_browser_redirect_url: console-store.veryfy.net
+    #     minio_server_bin: /usr/bin/minio
+    #     minio_client_bin: /usr/bin/mc
+    #   become: true

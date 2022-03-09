@@ -3,8 +3,20 @@ server {
   server_name  {{ server_name }};
 
   location / {
-      # https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/
       proxy_set_header  Host $host;
       proxy_pass http://localhost:9000/;
   }
 }
+
+server {
+  listen 80;
+  server_name  {{ minio_browser_redirect_url }};
+
+  location / {
+      proxy_set_header  Host $host;
+      proxy_pass http://localhost:9001/;
+  }
+}
+
+
+# https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/

@@ -15,6 +15,7 @@
     dest: "{{ item.dest }}"
   with_items:
     - { src: nginx.conf.j2, dest: /etc/nginx/nginx.conf }
+    # - { src: minio.conf.j2, dest: /etc/nginx/sites-available/default }
     - { src: veryfy_api.conf.j2, dest: /etc/nginx/sites-available/default }
   become: true
   notify:

@@ -5,7 +5,7 @@ After=systemd-user-sessions.service
 [Service]
 Type=simple
 Restart=on-failure
-User=vagrant
+User={{deploy_user}}
 
 {% if production %}
 ExecStart=/usr/bin/meilisearch --http-addr {{meilisearch_http_addr}} --env production --db-path {{meilisearch_db_path}} --master-key {{meilisearch_master_key}}  --no-analytics=true

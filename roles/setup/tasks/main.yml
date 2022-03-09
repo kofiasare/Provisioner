@@ -1,7 +1,7 @@
 - name: Determine release
   raw: lsb_release -a 2>/dev/null | grep Codename | awk '{printf("%s"), $2}'
   register: release
-  ignore_errors: yes
+  ignore_errors: true
 
 - debug:
     var: release.stdout
@@ -20,7 +20,7 @@
 
 - name: Install dependencies
   apt:
-    name: ["make", "git", "gcc", "g++", "acl", "supervisor"]
+    name: ["make", "git", "gcc", "g++", "acl", "supervisor", "net-tools"]
     state: latest
     force: yes
     update_cache: yes

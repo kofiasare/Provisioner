@@ -6,7 +6,7 @@
     login_user: "{{ pg_user }}"
     login_password: "{{ pg_user_password }}"
 
-- name: "Enable PGCRYPTO extension on shared_extensions schema"
+- name: "Add PGCRYPTO extension to shared_extensions schema"
   postgresql_ext:
     name: pgcrypto
     db: "{{ app_name }}_{{ app_env }}"
