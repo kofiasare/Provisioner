@@ -6,3 +6,5 @@
 - include: install-ruby.yml
 
 - include: install-default-gems.yml
+
+- include: set-bundler-configs.yml

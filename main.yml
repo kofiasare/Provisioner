@@ -17,7 +17,7 @@
     #   vars:
     #     pg_user_password: "{{ pg_user_pass }}"
 
-    - rails-config
+    # - rails-config
     - role: rbenv
       vars:
         ruby_version: 3.0.1

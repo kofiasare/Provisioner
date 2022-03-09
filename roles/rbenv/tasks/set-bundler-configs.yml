@@ -1,0 +1,16 @@
+---
+- name: Check for bundler installation
+  stat:
+    path: "{{ bundler_path }}"
+  register: bundler
+  ignore_errors: true
+
+- block:
+    - name: Set local bundler configs
+      shell:
+        warn: false
+        cmd: |
+          {{bundler_path}} config set path /home/deploy/vendor
+          {{bundler_path}} config set without development:test
+
+  when: bundler.stat.exists == true
