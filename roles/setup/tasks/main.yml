@@ -26,3 +26,10 @@
     update_cache: yes
     cache_valid_time: 3600
   become: true
+
+- name: "Update OS PATH"
+  template:
+    src: environment.j2
+    dest: "{{env_path}}"
+    mode: 0644
+  become: true

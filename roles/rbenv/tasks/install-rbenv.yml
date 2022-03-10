@@ -11,8 +11,6 @@
         warn: false
         cmd: |
           wget -q "{{rbenv_installer_url}}" -O- | bash
-          echo 'export PATH="{{rbenv_path}}/bin:$PATH"' >> /home/deploy/.bashrc
-          echo 'export PATH="{{rbenv_path}}/shims:$PATH"' >> /home/deploy/.bashrc
           echo 'eval "$(rbenv init -)"' >> /home/deploy/.bashrc
           touch /home/deploy/.gemrc
           echo 'gem: --no-document' >> /home/deploy/.gemrc

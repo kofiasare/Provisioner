@@ -2,7 +2,7 @@
 - hosts: staging
   gather_facts: yes
   roles:
-    # - setup
+    - setup
     # - nginx
     # - redis
     # - role: meilisearch
@@ -18,9 +18,9 @@
     #     pg_user_password: "{{ pg_user_pass }}"
 
     # - rails-config
-    - role: rbenv
-      vars:
-        ruby_version: 3.0.1
+    # - role: rbenv
+    #   vars:
+    #     ruby_version: 3.0.1
 
     # - role: atosatto.minio
     #   vars:
