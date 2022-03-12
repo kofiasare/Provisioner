@@ -1,3 +1,4 @@
 deploy_user: vagrant
+pg_user: veryfy
 app_name: veryfy_api
 app_env: development
