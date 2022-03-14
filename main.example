@@ -26,20 +26,4 @@
 #       become: yes
 #       become_user: root
 
-#     - role: elastic.elasticsearch
-#       vars:
-#         es_version: 7.17.0
-#         # What is JVM heap size in Elasticsearch?
-#         # Overview. The heap size is the amount of RAM allocated to the Java Virtual Machine
-#         # of an Elasticsearch node. As a general rule, you should set -Xms and -Xmx
-#         # to the SAME value, which should be 50% of your total available
-#         # RAM subject to a maximum of (approximately) 31GB.
-
-#         # What is Elasticsearch heap size?
-#         # By default, Elasticsearch tells the JVM to use a heap with a minimum and
-#         # maximum size of 1 GB. When moving to production, it is important to configure
-#         # heap size to ensure that Elasticsearch has enough heap available. ...
-#         # The more heap available to Elasticsearch, the more memory it can use for caching.
-#         es_heap_size: 512m
-
 #     - role: meilisearch
