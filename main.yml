@@ -7,9 +7,9 @@
     #   vars:
     #     pg_user_password: "{{ pg_user_pass }}"
 
-    - role: pg-extensions
-      vars:
-        pg_user_password: "{{ pg_user_pass }}"
+    # - role: pg-extensions
+    #   vars:
+    #     pg_user_password: "{{ pg_user_pass }}"
     # - rails-config
     # - role: rbenv
     #   vars:
